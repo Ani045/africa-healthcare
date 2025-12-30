@@ -1,13 +1,17 @@
-import React from 'react';
-import { Star, Calendar, Award, Clock } from 'lucide-react';
-import { useState } from 'react';
-import ConsultationPopup from './ConsultationPopup';
+import { Calendar } from 'lucide-react';
 
 const DoctorProfiles = () => {
-    const [isConsultationPopupOpen, setIsConsultationPopupOpen] = useState(false);
-  
-    const openConsultationPopup = () => setIsConsultationPopupOpen(true);
-  const closeConsultationPopup = () => setIsConsultationPopupOpen(false);
+  const scrollToForm = () => {
+    const heroForm = document.getElementById('hero-contact-form');
+    if (heroForm) {
+      heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => {
+        const firstInput = heroForm.querySelector('input');
+        if (firstInput) (firstInput as HTMLInputElement).focus();
+      }, 500);
+    }
+  };
+
   const doctors = [
     {
       name: 'Dr. Mukesh Patekar',
@@ -40,13 +44,13 @@ const DoctorProfiles = () => {
   ];
 
   return (
-    <section id="doctors" className="py-8 sm:py-12 lg:py-16 bg-amber-50">
+    <section id="doctors" className="py-8 sm:py-12 lg:py-16 bg-[#f0f7ff]">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-amber-900 mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#154D92] mb-4">
             Meet Our Doctors
           </h2>
-          <p className="text-amber-800 text-base sm:text-lg max-w-3xl mx-auto px-4">
+          <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto px-4">
             World-class specialists dedicated to providing exceptional oncology care with personalized treatment approaches.
           </p>
         </div>
@@ -59,35 +63,35 @@ const DoctorProfiles = () => {
                 <div className="flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
                   {/* Doctor Image */}
                   <div className="relative flex-shrink-0 self-center sm:self-start">
-                    <img 
-                      src={doctor.image} 
+                    <img
+                      src={doctor.image}
                       alt={doctor.name}
-                      className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-4 border-amber-500"
+                      className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-4 border-[#154D92]"
                     />
                     <div className="absolute -bottom-2 -right-2 w-5 h-5 sm:w-6 sm:h-6 bg-green-500 rounded-full border-2 border-white"></div>
                   </div>
-                  
+
                   {/* Doctor Info */}
                   <div className="flex-1 text-center sm:text-left w-full">
-                    <h3 className="text-lg sm:text-xl font-bold text-amber-900 mb-2">{doctor.name}</h3>
-                    <p className="text-amber-600 font-semibold mb-2 text-sm sm:text-base">{doctor.specialization}</p>
-                    <p className="text-amber-800 text-xs sm:text-sm mb-3">{doctor.qualifications}</p>
-                    <p className="text-amber-700 text-xs sm:text-sm mb-4 leading-relaxed">{doctor.expertise}</p>
-                    
+                    <h3 className="text-lg sm:text-xl font-bold text-[#154D92] mb-2">{doctor.name}</h3>
+                    <p className="text-[#2a6db8] font-semibold mb-2 text-sm sm:text-base">{doctor.specialization}</p>
+                    <p className="text-gray-600 text-xs sm:text-sm mb-3">{doctor.qualifications}</p>
+                    <p className="text-gray-500 text-xs sm:text-sm mb-4 leading-relaxed">{doctor.expertise}</p>
+
                     {/* Buttons - Responsive Layout */}
                     <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full">
-                    <a
-  href="https://wa.me/918929000217" // Replace with your actual WhatsApp number
-  target="_blank"
-  rel="noopener noreferrer"
-  className="w-full sm:w-auto bg-green-500 text-white px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium hover:bg-green-600 transition-colors flex items-center justify-center space-x-2"
->
-  <span>💬</span>
-  <span className="whitespace-nowrap">Chat on WhatsApp</span>
-</a>
-                      <button 
-                         onClick={openConsultationPopup}
-                        className="w-full sm:w-auto bg-amber-500 text-amber-900 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium hover:bg-amber-400 transition-colors flex items-center justify-center space-x-2"
+                      <a
+                        href="https://wa.me/918929000217"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full sm:w-auto bg-green-500 text-white px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium hover:bg-green-600 transition-colors flex items-center justify-center space-x-2"
+                      >
+                        <span>💬</span>
+                        <span className="whitespace-nowrap">Chat on WhatsApp</span>
+                      </a>
+                      <button
+                        onClick={scrollToForm}
+                        className="w-full sm:w-auto bg-[#154D92] text-white px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium hover:bg-[#0e3a6e] transition-colors flex items-center justify-center space-x-2"
                       >
                         <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
                         <span className="whitespace-nowrap">Book Appointment</span>
@@ -100,10 +104,6 @@ const DoctorProfiles = () => {
           ))}
         </div>
       </div>
-      <ConsultationPopup 
-  isOpen={isConsultationPopupOpen}
-  onClose={closeConsultationPopup}
-/>
     </section>
   );
 };

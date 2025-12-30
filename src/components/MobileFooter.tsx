@@ -12,7 +12,7 @@ const MobileFooter = () => {
     window.open(url, '_blank');
   };
 
-  
+
   const handleHome = () => {
     window.location.href = '/';
     // Or use React Router: navigate('/');
@@ -21,27 +21,27 @@ const MobileFooter = () => {
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t border-gray-200 z-50">
       <div className="flex justify-around items-center py-3">
-        <button 
+        <button
           onClick={handleHome}
-          className="flex flex-col items-center text-blue-600"
+          className="flex flex-col items-center text-[#154D92]"
         >
           <FaHome className="text-xl" />
           <span className="text-xs mt-1">Home</span>
         </button>
-        
-       
-        
-        <button 
+
+
+
+        <button
           onClick={handleWhatsApp}
           className="flex flex-col items-center text-green-600"
         >
           <FaWhatsapp className="text-xl" />
           <span className="text-xs mt-1">WhatsApp</span>
         </button>
-        
-        <button 
+
+        <button
           onClick={handleCall}
-          className="flex flex-col items-center text-blue-600"
+          className="flex flex-col items-center text-[#154D92]"
         >
           <FaPhoneAlt className="text-xl" />
           <span className="text-xs mt-1">Call</span>

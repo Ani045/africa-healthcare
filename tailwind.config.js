@@ -7,19 +7,22 @@ export default {
   theme: {
     extend: {
       colors: {
-        'rich-chocolate': '#3C2A21',
-        'warm-brown': '#8B4513',
-        'coffee-bean': '#6F4E37',
-        'caramel': '#C19A6B',
-        'cream-white': '#FFF8DC',
-        'warm-ivory': '#FAF7F0',
-        'golden-honey': '#DAA520',
-        'deep-copper': '#B87333',
-        'soft-beige': '#F8F4E6',
-        'artemis-bg': '#f8f9fa',
-        'artemis-dark': '#664200',
-        'artemis-gold': '#916300',
-        'artemis-cream': '#FEFBD9'
+        'rich-chocolate': '#154D92',
+        'warm-brown': '#0e3a6e',
+        'coffee-bean': '#4a6fa5',
+        'caramel': '#6b8fc9',
+        'cream-white': '#ffffff',
+        'warm-ivory': '#f8fafc',
+        'golden-honey': '#154D92',
+        'deep-copper': '#0e3a6e',
+        'soft-beige': '#f0f7ff',
+        'artemis-bg': '#f8fafc',
+        'artemis-dark': '#0a2d54',
+        'artemis-gold': '#154D92',
+        'artemis-cream': '#e8f4ff',
+        'primary': '#154D92',
+        'primary-dark': '#0e3a6e',
+        'primary-light': '#2a6db8'
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

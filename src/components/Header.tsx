@@ -1,14 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, Calendar } from 'lucide-react';
-import ConsultationPopup from './ConsultationPopup';
+import { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isConsultationPopupOpen, setIsConsultationPopupOpen] = useState(false);
 
-  const openConsultationPopup = () => setIsConsultationPopupOpen(true);
-const closeConsultationPopup = () => setIsConsultationPopupOpen(false);
+  const scrollToForm = () => {
+    const heroForm = document.getElementById('hero-contact-form');
+    if (heroForm) {
+      heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => {
+        const firstInput = heroForm.querySelector('input');
+        if (firstInput) (firstInput as HTMLInputElement).focus();
+      }, 500);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,12 +25,15 @@ const closeConsultationPopup = () => setIsConsultationPopupOpen(false);
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-cream-white/95 backdrop-blur-md shadow-sm border-b border-caramel/10">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <img className='w-40 h-30' src='artemis-logo.png'></img>
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 bg-[#154D92] rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">A</span>
+            </div>
+            <span className="text-xl font-bold text-[#154D92]">Aster</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -33,7 +42,7 @@ const closeConsultationPopup = () => setIsConsultationPopupOpen(false);
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-sm font-medium text-black hover:text-golden-honey transition-colors"
+                className="text-sm font-medium text-gray-700 hover:text-[#154D92] transition-colors"
               >
                 {item}
               </a>
@@ -42,13 +51,9 @@ const closeConsultationPopup = () => setIsConsultationPopupOpen(false);
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-3">
-            {/* <button className="flex items-center space-x-2 text-coffee-bean hover:text-golden-honey transition-colors">
-              <Phone className="w-4 h-4" />
-              <span className="text-sm font-medium">Emergency</span>
-            </button> */}
-            <button 
-            onClick={openConsultationPopup}
-              className="bg-golden-honey text-rich-chocolate px-4 py-2 rounded-lg text-sm font-medium hover:bg-deep-copper transition-colors">
+            <button
+              onClick={scrollToForm}
+              className="bg-[#154D92] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#0e3a6e] transition-colors">
               Book Consultation
             </button>
           </div>
@@ -56,7 +61,7 @@ const closeConsultationPopup = () => setIsConsultationPopupOpen(false);
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 text-coffee-bean hover:text-golden-honey transition-colors"
+            className="lg:hidden p-2 text-gray-700 hover:text-[#154D92] transition-colors"
           >
             {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -64,22 +69,25 @@ const closeConsultationPopup = () => setIsConsultationPopupOpen(false);
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-cream-white border-b border-caramel/20 shadow-lg">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg">
             <nav className="px-6 py-4 space-y-3">
               {['Services', 'Doctors', 'About', 'Contact'].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="block text-sm font-medium text-coffee-bean hover:text-golden-honey transition-colors"
+                  className="block text-sm font-medium text-gray-700 hover:text-[#154D92] transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item}
                 </a>
               ))}
-              <div className="pt-3 border-t border-caramel/20">
-                <button 
-                  className="w-full bg-golden-honey text-rich-chocolate px-4 py-2 rounded-lg text-sm font-medium"
-                  onClick={openConsultationPopup}
+              <div className="pt-3 border-t border-gray-200">
+                <button
+                  className="w-full bg-[#154D92] text-white px-4 py-2 rounded-lg text-sm font-medium"
+                  onClick={() => {
+                    scrollToForm();
+                    setIsMenuOpen(false);
+                  }}
                 >
                   Book Consultation
                 </button>
@@ -88,10 +96,6 @@ const closeConsultationPopup = () => setIsConsultationPopupOpen(false);
           </div>
         )}
       </div>
-      <ConsultationPopup 
-  isOpen={isConsultationPopupOpen}
-  onClose={closeConsultationPopup}
-/>
     </header>
   );
 };

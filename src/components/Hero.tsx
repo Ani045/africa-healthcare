@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react';
-import { ArrowRight, Play, Star, Shield, Phone, Calendar } from 'lucide-react';
+import { useState } from 'react';
+import { Shield, Calendar } from 'lucide-react';
 
 const Hero = () => {
   const [formData, setFormData] = useState({
@@ -12,150 +12,63 @@ const Hero = () => {
     message: ''
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  // List of countries for dropdown
+  // Simplified countries list
   const countries = [
     { name: 'Afghanistan', code: '+93' },
-    { name: 'Algeria', code: '+213' },
-    { name: 'Argentina', code: '+54' },
     { name: 'Australia', code: '+61' },
-    { name: 'Austria', code: '+43' },
-    { name: 'Bahrain', code: '+973' },
     { name: 'Bangladesh', code: '+880' },
-    { name: 'Belgium', code: '+32' },
-    { name: 'Belize', code: '+501' },
-    { name: 'Bhutan', code: '+975' },
-    { name: 'Bolivia', code: '+591' },
-    { name: 'Brazil', code: '+55' },
-    { name: 'Bulgaria', code: '+359' },
-    { name: 'Burkina Faso', code: '+226' },
-    { name: 'Cambodia', code: '+855' },
-    { name: 'Cameroon', code: '+237' },
     { name: 'Canada', code: '+1' },
-    { name: 'Chad', code: '+235' },
-    { name: 'Chile', code: '+56' },
-    { name: 'China', code: '+86' },
-    { name: 'Colombia', code: '+57' },
-    { name: 'Costa Rica', code: '+506' },
-    { name: 'Croatia', code: '+385' },
-    { name: 'Cuba', code: '+53' },
-    { name: 'Czech Republic', code: '+420' },
-    { name: 'Denmark', code: '+45' },
-    { name: 'Ecuador', code: '+593' },
     { name: 'Egypt', code: '+20' },
-    { name: 'El Salvador', code: '+503' },
     { name: 'Ethiopia', code: '+251' },
-    { name: 'Fiji', code: '+679' },
-    { name: 'Finland', code: '+358' },
-    { name: 'France', code: '+33' },
     { name: 'Germany', code: '+49' },
     { name: 'Ghana', code: '+233' },
-    { name: 'Greece', code: '+30' },
-    { name: 'Guatemala', code: '+502' },
-    { name: 'Honduras', code: '+504' },
-    { name: 'Hong Kong', code: '+852' },
-    { name: 'Hungary', code: '+36' },
     { name: 'India', code: '+91' },
     { name: 'Indonesia', code: '+62' },
-    { name: 'Ireland', code: '+353' },
-    { name: 'Israel', code: '+972' },
-    { name: 'Italy', code: '+39' },
-    { name: 'Ivory Coast', code: '+225' },
-    { name: 'Jamaica', code: '+1' },
-    { name: 'Japan', code: '+81' },
-    { name: 'Jordan', code: '+962' },
-    { name: 'Kazakhstan', code: '+7' },
+    { name: 'Iraq', code: '+964' },
     { name: 'Kenya', code: '+254' },
     { name: 'Kuwait', code: '+965' },
-    { name: 'Kyrgyzstan', code: '+996' },
-    { name: 'Laos', code: '+856' },
-    { name: 'Lebanon', code: '+961' },
-    { name: 'Libya', code: '+218' },
-    { name: 'Luxembourg', code: '+352' },
     { name: 'Malaysia', code: '+60' },
     { name: 'Maldives', code: '+960' },
-    { name: 'Mali', code: '+223' },
-    { name: 'Marshall Islands', code: '+692' },
-    { name: 'Mexico', code: '+52' },
-    { name: 'Mongolia', code: '+976' },
-    { name: 'Morocco', code: '+212' },
-    { name: 'Myanmar', code: '+95' },
     { name: 'Nepal', code: '+977' },
-    { name: 'Netherlands', code: '+31' },
-    { name: 'New Zealand', code: '+64' },
-    { name: 'Nicaragua', code: '+505' },
-    { name: 'Niger', code: '+227' },
     { name: 'Nigeria', code: '+234' },
-    { name: 'Norway', code: '+47' },
     { name: 'Oman', code: '+968' },
     { name: 'Pakistan', code: '+92' },
-    { name: 'Palau', code: '+680' },
-    { name: 'Panama', code: '+507' },
-    { name: 'Papua New Guinea', code: '+675' },
-    { name: 'Paraguay', code: '+595' },
-    { name: 'Peru', code: '+51' },
-    { name: 'Philippines', code: '+63' },
-    { name: 'Poland', code: '+48' },
-    { name: 'Portugal', code: '+351' },
     { name: 'Qatar', code: '+974' },
-    { name: 'Romania', code: '+40' },
-    { name: 'Russia', code: '+7' },
-    { name: 'Rwanda', code: '+250' },
-    { name: 'Samoa', code: '+685' },
     { name: 'Saudi Arabia', code: '+966' },
-    { name: 'Senegal', code: '+221' },
-    { name: 'Serbia', code: '+381' },
-    { name: 'Singapore', code: '+65' },
-    { name: 'Slovakia', code: '+421' },
-    { name: 'Solomon Islands', code: '+677' },
     { name: 'South Africa', code: '+27' },
-    { name: 'South Korea', code: '+82' },
-    { name: 'Spain', code: '+34' },
+    { name: 'South Sudan', code: '+211' },
     { name: 'Sri Lanka', code: '+94' },
     { name: 'Sudan', code: '+249' },
-    { name: 'Sweden', code: '+46' },
-    { name: 'Switzerland', code: '+41' },
-    { name: 'Taiwan', code: '+886' },
-    { name: 'Tajikistan', code: '+992' },
     { name: 'Tanzania', code: '+255' },
-    { name: 'Thailand', code: '+66' },
-    { name: 'Tonga', code: '+676' },
-    { name: 'Tunisia', code: '+216' },
-    { name: 'Turkey', code: '+90' },
-    { name: 'Turkmenistan', code: '+993' },
+    { name: 'UAE', code: '+971' },
     { name: 'Uganda', code: '+256' },
-    { name: 'Ukraine', code: '+380' },
-    { name: 'United Arab Emirates', code: '+971' },
-    { name: 'United Kingdom', code: '+44' },
-    { name: 'United States', code: '+1' },
-    { name: 'Uruguay', code: '+598' },
-    { name: 'Uzbekistan', code: '+998' },
-    { name: 'Vanuatu', code: '+678' },
-    { name: 'Venezuela', code: '+58' },
-    { name: 'Vietnam', code: '+84' }
-  ].sort((a, b) => a.name.localeCompare(b.name));
-
+    { name: 'UK', code: '+44' },
+    { name: 'USA', code: '+1' },
+    { name: 'Yemen', code: '+967' },
+    { name: 'Zambia', code: '+260' },
+    { name: 'Zimbabwe', code: '+263' }
+  ];
 
   const handleConsultationClick = () => {
-    const heroForm = document.querySelector('#hero-contact-form');
-    if (heroForm) {
-      heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const formElement = document.getElementById('hero-contact-form');
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
       setTimeout(() => {
-        const firstInput = heroForm.querySelector('input');
-        if (firstInput) firstInput.focus();
+        const firstInput = formElement.querySelector('input');
+        if (firstInput) (firstInput as HTMLInputElement).focus();
       }, 500);
     }
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
-  const handleCountryChange = (e) => {
+
+  const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedValue = e.target.value;
     if (selectedValue) {
       const [countryName, countryCode] = selectedValue.split('|');
@@ -173,274 +86,211 @@ const Hero = () => {
     }
   };
 
-  const handleSubmit = async () => {
-    setIsSubmitting(true);
-
-    try {
-      // Prepare form data for Formester
-      const submitData = new FormData();
-      submitData.append('name', formData.name);
-      submitData.append('phone', formData.phone);
-      submitData.append('email', formData.email);
-      submitData.append('country', formData.country);
-      submitData.append('countryCode', formData.countryCode);
-      submitData.append('message', formData.message);
-
-      // For demo purposes, just show the data that would be submitted
-      console.log('Form Data to Submit:', {
-        name: formData.name,
-        phone: formData.phone,
-        email: formData.email,
-        country: formData.country,
-        countryCode: formData.countryCode,
-        message: formData.message
-      });
-
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      alert('Thank you for your interest! We will contact you soon.');
-      
-      // Reset form
-      setFormData({
-        name: '',
-        phone: '',
-        email: '',
-        country: '',
-        countryCode: '',
-        message: ''
-      });
-    } catch (error) {
-      console.error('Form submission error:', error);
-      alert('There was an error submitting your form. Please try again or contact us directly.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
-    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
+    <section className="relative min-h-screen lg:min-h-[85vh] flex items-center pt-20 pb-6 lg:pt-16 overflow-hidden">
       {/* Background Image with Overlay */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(Artemis.webp)'
+          backgroundImage: 'url(https://res.cloudinary.com/damfndmrm/image/upload/v1766993266/best-hospital-in-kollam_1_kbys8k.webp)'
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-black/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-black/80 via-black/50 to-black/40"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="text-white space-y-6 col-span-full lg:col-span-1">
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
+          {/* Left Content - Simplified */}
+          <div className="text-white space-y-4 col-span-full lg:col-span-1">
             {/* Badge */}
-            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-amber-500/30 rounded-full px-4 py-2">
-              <Shield className="w-4 h-4 text-amber-400" />
-              <span className="text-amber-400 font-medium text-sm">JCI Accredited • 25+ Years Excellence</span>
+            <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-3 py-1.5">
+              <Shield className="w-4 h-4 text-white" />
+              <span className="text-white font-medium text-sm">Trusted Medical Tourism Partner</span>
             </div>
 
-            {/* Headline - Different for Mobile and Desktop */}
-            <div>
-              {/* Mobile Heading */}
-              <h1 className="text-3xl font-bold leading-tight mb-4 lg:hidden">
-                Best Hospital for{' '}
-                <span className="text-amber-400">Cancer Treatment</span>
-                <br />in India
-              </h1>
-              
-              {/* Desktop Heading */}
-              <h1 className="hidden lg:block text-4xl lg:text-5xl font-bold leading-tight mb-4">
-                Discover World-Class{' '}
-                <span className="text-amber-400">Cancer Care</span>
-                <br />at Artemis Hospitals
-              </h1>
-              
-              <p className="text-white/90 text-lg max-w-lg leading-relaxed mb-6">
-                Comprehensive Multidisciplinary Cancer Care with State-of-the-Art Technology
-              </p>
-              
-              {/* Key Features */}
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
-                  <span className="text-white/90">Comprehensive Multidisciplinary Cancer Care</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
-                  <span className="text-white/90">State-of-the-Art Radiation and CyberKnife Technology</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
-                  <span className="text-white/90">Bone Marrow Transplant and Hematology Services</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
-                  <span className="text-white/90">Cutting-Edge Technology and World-Class Equipment</span>
-                </div>
-              </div>
+            {/* Headline */}
+            <h1 className="text-3xl lg:text-4xl font-bold leading-tight ">
+              Cancer Treatment in India
+              <br />
+              <span className="text-[#154D92] bg-white/90 px-2 rounded ">Save up to 70%</span>
+            </h1>
+
+            <p className="text-white/90 text-base max-w-md">
+              World-class oncology care at affordable prices. Get personalized treatment plans from India's top cancer specialists.
+            </p>
+
+            {/* Key Highlights - Compact */}
+            <div className="flex flex-wrap gap-3 text-sm">
+              <span className="bg-white/20 px-3 py-1.5 rounded-full">✓ JCI Accredited</span>
+              <span className="bg-white/20 px-3 py-1.5 rounded-full">✓ No Waiting</span>
+              <span className="bg-white/20 px-3 py-1.5 rounded-full">✓ Visa Support</span>
             </div>
 
-            {/* Stats - Mobile shows only one stat, Desktop shows all four */}
-            <div className="mb-8">
-              {/* Mobile Stats - Single Stat */}
-              <div className="lg:hidden flex justify-center">
-                <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-4 w-64">
-                  <div className="text-3xl font-bold text-amber-400">3,00,000+</div>
-                  <div className="text-white/80 text-sm">Cancer Patients Treated</div>
-                </div>
-              </div>
-              
-              {/* Desktop Stats - All Four Stats */}
-              <div className="hidden lg:grid grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-3">
-                  <div className="text-2xl font-bold text-amber-400">500+</div>
-                  <div className="text-white/80 text-sm">Beds</div>
-                </div>
-                <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-3">
-                  <div className="text-2xl font-bold text-amber-400">70+</div>
-                  <div className="text-white/80 text-sm">Countries</div>
-                </div>
-                <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-3">
-                  <div className="text-2xl font-bold text-amber-400">400+</div>
-                  <div className="text-white/80 text-sm">Doctors</div>
-                </div>
-                <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-3">
-                  <div className="text-2xl font-bold text-amber-400">40+</div>
-                  <div className="text-white/80 text-sm">Super Specialties</div>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA Button - Show on desktop, hide on mobile since form is hidden */}
-            <div className="mb-8 hidden lg:block">
-              <button 
+            {/* CTA Button - Desktop Only */}
+            <div className="hidden lg:block pt-2">
+              <button
                 onClick={handleConsultationClick}
-                className="bg-amber-500 text-amber-900 px-8 py-4 rounded-lg font-semibold hover:bg-amber-400 transition-colors flex items-center space-x-2 shadow-lg"
+                className="bg-white text-[#154D92] px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center space-x-2 shadow-lg"
               >
                 <Calendar className="w-5 h-5" />
-                <span>Book a Free Consultation</span>
+                <span>Get Free Consultation</span>
               </button>
             </div>
           </div>
 
-          {/* Right Side - Contact Form (Hidden on Mobile) */}
-          <div className="hidden lg:block bg-white/70 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-amber-500/20 w-full max-w-md mx-auto">
+          {/* Right Side - Contact Form (Desktop) */}
+          <div className="hidden lg:block bg-white/95 backdrop-blur-md rounded-xl p-5 shadow-xl border border-[#154D92]/20 w-full max-w-sm mx-auto">
             <div id="hero-contact-form">
-              <div className="text-center mb-6">
-                <div className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <Calendar className="w-6 h-6 text-amber-900" />
-                </div>
-                <h2 className="text-xl font-bold text-amber-900 mb-1">
-                  Get Expert Consultation
+              <div className="text-center mb-4">
+                <h2 className="text-lg font-bold text-[#154D92]">
+                  Get Free Treatment Estimate
                 </h2>
-                <p className="text-amber-800 text-sm">
-                  Connect with our oncology specialists today
+                <p className="text-gray-600 text-xs">
+                  Connect with our medical tourism team
                 </p>
               </div>
 
-              <form accept-charset='UTF-8' action='https://app.formester.com/forms/74CaRVAvR/submissions' method='POST' className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-amber-800 mb-1">
-                      Name *
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-2 border border-amber-300 rounded-lg focus:border-amber-500 focus:outline-none transition-colors bg-white text-sm"
-                      placeholder="Your full name"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-amber-800 mb-1">
-                      Phone Number *
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-2 border border-amber-300 rounded-lg focus:border-amber-500 focus:outline-none transition-colors bg-white text-sm"
-                      placeholder="Your phone number"
-                    />
-                  </div>
+              <form accept-charset='UTF-8' action='https://app.formester.com/forms/74CaRVAvR/submissions' method='POST' className="space-y-3">
+                <div>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#154D92] focus:outline-none text-sm"
+                    placeholder="Your Name *"
+                  />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-amber-800 mb-1">
-                    Email
-                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#154D92] focus:outline-none text-sm"
+                    placeholder="Phone Number *"
+                  />
+                </div>
+
+                <div>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2 border border-amber-300 rounded-lg focus:border-amber-500 focus:outline-none transition-colors bg-white text-sm"
-                    placeholder="your@email.com"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#154D92] focus:outline-none text-sm"
+                    placeholder="Email Address"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-amber-800 mb-1">
-                    Country *
-                  </label>
                   <select
                     name="countrySelect"
                     value={formData.country && formData.countryCode ? `${formData.country}|${formData.countryCode}` : ''}
                     onChange={handleCountryChange}
                     required
-                    className="w-full px-4 py-2 border border-amber-300 rounded-lg focus:border-amber-500 focus:outline-none transition-colors bg-white text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#154D92] focus:outline-none text-sm"
                   >
-                    <option value="">Select your country</option>
+                    <option value="">Select Country *</option>
                     {countries.map((country) => (
                       <option key={country.name} value={`${country.name}|${country.code}`}>
                         {country.name} ({country.code})
                       </option>
                     ))}
                   </select>
-                  {formData.country && formData.countryCode && (
-                    <div className="mt-2 text-xs text-amber-700">
-                      Selected: {formData.country} - Code: {formData.countryCode}
-                    </div>
-                  )}
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-amber-800 mb-1">
-                    Message
-                  </label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    rows={3}
-                    className="w-full px-4 py-2 border border-amber-300 rounded-lg focus:border-amber-500 focus:outline-none transition-colors bg-white resize-none text-sm"
-                    placeholder="Tell us about your condition or any specific concerns..."
+                    rows={2}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#154D92] focus:outline-none resize-none text-sm"
+                    placeholder="Briefly describe your condition..."
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-amber-500 text-amber-900 py-3 rounded-lg font-semibold hover:bg-amber-400 transition-colors shadow-md text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-[#154D92] text-white py-2.5 rounded-lg font-semibold hover:bg-[#0e3a6e] transition-colors text-sm"
                 >
-                  {isSubmitting ? 'SUBMITTING...' : 'SUBMIT'}
+                  Get Free Estimate
                 </button>
 
-                <div className="text-center">
-                  <p className="text-xs text-amber-700/70">
-                    Your information is secure and confidential
-                  </p>
-                </div>
+                <p className="text-xs text-gray-500 text-center">
+                  Your information is secure & confidential
+                </p>
               </form>
             </div>
           </div>
 
+          {/* Mobile Form - Only visible on mobile */}
+          <div className="lg:hidden bg-white/95 backdrop-blur-md rounded-xl p-4 shadow-xl border border-[#154D92]/20 w-full">
+            <div id="hero-contact-form-mobile">
+              <div className="text-center mb-3">
+                <h2 className="text-base font-bold text-[#154D92]">
+                  Get Free Treatment Estimate
+                </h2>
+              </div>
+
+              <form accept-charset='UTF-8' action='https://app.formester.com/forms/74CaRVAvR/submissions' method='POST' className="space-y-2">
+                <div className="grid grid-cols-2 gap-2">
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#154D92] focus:outline-none text-sm"
+                    placeholder="Name *"
+                  />
+                  <input
+                    type="tel"
+                    name="phone"
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#154D92] focus:outline-none text-sm"
+                    placeholder="Phone *"
+                  />
+                </div>
+
+                <input
+                  type="email"
+                  name="email"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#154D92] focus:outline-none text-sm"
+                  placeholder="Email"
+                />
+
+                <select
+                  name="countrySelect"
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#154D92] focus:outline-none text-sm"
+                >
+                  <option value="">Select Country *</option>
+                  {countries.map((country) => (
+                    <option key={country.name} value={`${country.name}|${country.code}`}>
+                      {country.name} ({country.code})
+                    </option>
+                  ))}
+                </select>
+
+                <textarea
+                  name="message"
+                  rows={2}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#154D92] focus:outline-none resize-none text-sm"
+                  placeholder="Describe your condition..."
+                ></textarea>
+
+                <button
+                  type="submit"
+                  className="w-full bg-[#154D92] text-white py-2.5 rounded-lg font-semibold hover:bg-[#0e3a6e] transition-colors text-sm"
+                >
+                  Get Free Estimate
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </section>

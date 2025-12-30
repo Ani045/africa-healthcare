@@ -1,13 +1,17 @@
-import React from 'react';
-import { useState } from 'react'; 
 import { Heart, Zap, Stethoscope, Brain, Shield, Activity } from 'lucide-react';
-import ConsultationPopup from './ConsultationPopup';
 
 const ServicesGrid = () => {
-    const [isConsultationPopupOpen, setIsConsultationPopupOpen] = useState(false);
-  
-    const openConsultationPopup = () => setIsConsultationPopupOpen(true);
-  const closeConsultationPopup = () => setIsConsultationPopupOpen(false);
+  const scrollToForm = () => {
+    const heroForm = document.getElementById('hero-contact-form');
+    if (heroForm) {
+      heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => {
+        const firstInput = heroForm.querySelector('input');
+        if (firstInput) (firstInput as HTMLInputElement).focus();
+      }, 500);
+    }
+  };
+
   const services = [
     {
       icon: <Stethoscope className="w-6 h-6" />,
@@ -33,7 +37,7 @@ const ServicesGrid = () => {
       description: 'Comprehensive care and treatment for all stages of breast cancer.',
       features: ['Early Detection', 'Advanced Therapies']
     },
-    
+
     {
       icon: <Zap className="w-6 h-6" />,
       title: 'Radiation Oncology for Tumors',
@@ -85,37 +89,37 @@ const ServicesGrid = () => {
   ];
 
   return (
-    <section id="services" className="py-8 bg-soft-beige">
+    <section id="services" className="py-10 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-rich-chocolate mb-4">
-          Our Cancer Treatment Services
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#154D92] mb-4">
+            Our Cancer Treatment Services
           </h2>
-          <p className="text-coffee-bean max-w-3xl mx-auto text-lg">
-          We have wide range of Cancer Treatments with the best team of cancer doctors in India
+          <p className="text-gray-600 max-w-3xl mx-auto text-lg">
+            We have wide range of Cancer Treatments with the best team of cancer doctors in India
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <div key={index} className="group">
-              <div className="bg-cream-white rounded-xl p-6 border border-caramel/20 hover:border-golden-honey/50 hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300 h-full">
-                <div className="w-10 h-10 bg-golden-honey/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-golden-honey/30 transition-colors">
-                  <div className="text-golden-honey">{service.icon}</div>
+              <div className="bg-white rounded-xl p-6 border border-gray-200 hover:border-[#154D92]/50 hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300 h-full">
+                <div className="w-10 h-10 bg-[#154D92]/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#154D92]/30 transition-colors">
+                  <div className="text-[#154D92]">{service.icon}</div>
                 </div>
 
-                <h3 className="text-lg font-semibold text-rich-chocolate mb-3">
+                <h3 className="text-lg font-semibold text-[#154D92] mb-3">
                   {service.title}
                 </h3>
-                <p className="text-coffee-bean text-sm mb-4 leading-relaxed flex-grow">
+                <p className="text-gray-600 text-sm mb-4 leading-relaxed flex-grow">
                   {service.description}
                 </p>
 
                 <div className="space-y-2 mb-4">
                   {service.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center space-x-2">
-                      <div className="w-1.5 h-1.5 bg-golden-honey rounded-full"></div>
-                      <span className="text-coffee-bean text-sm">{feature}</span>
+                      <div className="w-1.5 h-1.5 bg-[#154D92] rounded-full"></div>
+                      <span className="text-gray-600 text-sm">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -123,20 +127,16 @@ const ServicesGrid = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="text-center mt-12">
-          <button 
-             onClick={openConsultationPopup}
-            className="bg-golden-honey text-rich-chocolate px-8 py-4 rounded-lg font-semibold hover:bg-deep-copper transition-colors shadow-lg"
+          <button
+            onClick={scrollToForm}
+            className="bg-[#154D92] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#0e3a6e] transition-colors shadow-lg"
           >
             Schedule Your Appointment Today!
           </button>
         </div>
       </div>
-      <ConsultationPopup 
-  isOpen={isConsultationPopupOpen}
-  onClose={closeConsultationPopup}
-/>
     </section>
   );
 };

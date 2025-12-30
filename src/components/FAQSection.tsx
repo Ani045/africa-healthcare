@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const FAQSection = () => {
-  const [openFAQ, setOpenFAQ] = useState(null);
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const faqs = [
     {
@@ -47,40 +47,40 @@ const FAQSection = () => {
     }
   ];
 
-  const toggleFAQ = (index) => {
+  const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index);
   };
 
   return (
-    <section className="py-16 bg-cream-white">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-rich-chocolate mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#154D92] mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-coffee-bean text-lg max-w-3xl mx-auto">
+          <p className="text-gray-600 text-lg max-w-3xl mx-auto">
             Get answers to common questions about oncology care and treatment at Artemis Hospital
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="bg-soft-beige rounded-xl shadow-lg overflow-hidden">
+            <div key={index} className="bg-[#f0f7ff] rounded-xl shadow-lg overflow-hidden">
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-cream-white transition-colors"
+                className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-white transition-colors"
               >
-                <span className="font-semibold text-rich-chocolate pr-4">{faq.question}</span>
+                <span className="font-semibold text-[#154D92] pr-4">{faq.question}</span>
                 {openFAQ === index ? (
-                  <ChevronUp className="w-5 h-5 text-golden-honey flex-shrink-0" />
+                  <ChevronUp className="w-5 h-5 text-[#154D92] flex-shrink-0" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-golden-honey flex-shrink-0" />
+                  <ChevronDown className="w-5 h-5 text-[#154D92] flex-shrink-0" />
                 )}
               </button>
               {openFAQ === index && (
                 <div className="px-6 pb-4">
-                  <div className="border-t border-caramel/20 pt-4">
-                    <p className="text-coffee-bean leading-relaxed">{faq.answer}</p>
+                  <div className="border-t border-gray-200 pt-4">
+                    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
                   </div>
                 </div>
               )}
