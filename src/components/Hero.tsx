@@ -150,7 +150,7 @@ const Hero = () => {
                 </p>
               </div>
 
-              <form accept-charset='UTF-8' action='https://app.formester.com/forms/74CaRVAvR/submissions' method='POST' className="space-y-3">
+              <form accept-charset='UTF-8'  method='POST' className="space-y-3">
                 <div>
                   <input
                     type="text"
