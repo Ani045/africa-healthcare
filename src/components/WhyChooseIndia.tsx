@@ -29,10 +29,10 @@ const WhyChooseIndia = () => {
     ];
 
     return (
-        <section className="py-10 bg-[#f0f7ff]">
+        <section className="py-10 bg-white">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-8">
-                    <h2 className="text-2xl lg:text-3xl font-bold text-[#154D92] mb-2">
+                    <h2 className="text-2xl lg:text-3xl font-bold text-[#1a365d] mb-2">
                         Why Choose India for Cancer Treatment?
                     </h2>
                     <p className="text-gray-600 max-w-xl mx-auto text-sm">
@@ -42,14 +42,14 @@ const WhyChooseIndia = () => {
 
                 {/* Cost Savings Grid */}
                 <div className="bg-white rounded-xl p-6 shadow-md mb-8 max-w-4xl mx-auto">
-                    <h3 className="text-center font-semibold text-[#154D92] mb-4">
+                    <h3 className="text-center font-semibold text-[#1a365d] mb-4">
                         Save 50-80% on Cancer Treatment Costs
                     </h3>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                         {treatments.map((treatment, index) => (
-                            <div key={index} className="bg-[#f0f7ff] rounded-lg p-3 text-center">
+                            <div key={index} className="bg-[#FEF3E2] rounded-lg p-3 text-center">
                                 <p className="text-sm text-gray-700 font-medium">{treatment.name}</p>
-                                <p className="text-[#154D92] font-bold text-lg">Save {treatment.saving}</p>
+                                <p className="text-[#1a365d] font-bold text-lg">Save {treatment.saving}</p>
                             </div>
                         ))}
                     </div>
@@ -59,7 +59,7 @@ const WhyChooseIndia = () => {
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl mx-auto mb-6">
                     {benefits.map((benefit, index) => (
                         <div key={index} className="bg-white rounded-lg p-3 flex items-center gap-2 shadow-sm">
-                            <div className="w-8 h-8 bg-[#154D92] rounded-full flex items-center justify-center text-white flex-shrink-0">
+                            <div className="w-8 h-8 bg-[#1a365d] rounded-full flex items-center justify-center text-white flex-shrink-0">
                                 {benefit.icon}
                             </div>
                             <span className="text-sm text-gray-700 font-medium">{benefit.title}</span>
@@ -71,7 +71,7 @@ const WhyChooseIndia = () => {
                 <div className="text-center">
                     <button
                         onClick={scrollToForm}
-                        className="bg-[#154D92] text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-[#0e3a6e] transition-colors text-sm"
+                        className="bg-[#1a365d] text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-[#2c5282] transition-colors text-sm"
                     >
                         Get Free Cost Estimate
                     </button>

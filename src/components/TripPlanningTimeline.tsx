@@ -62,7 +62,7 @@ const TripPlanningTimeline = () => {
             <div className="container mx-auto px-6">
                 {/* Header */}
                 <div className="text-center mb-10">
-                    <h2 className="text-2xl lg:text-3xl font-bold text-[#154D92] mb-3">
+                    <h2 className="text-2xl lg:text-3xl font-bold text-[#1a365d] mb-3">
                         Plan Your Treatment Journey
                     </h2>
                     <p className="text-gray-600 max-w-2xl mx-auto">
@@ -76,7 +76,7 @@ const TripPlanningTimeline = () => {
                         <div key={index} className="relative mb-8 last:mb-0">
                             {/* Timeline Line - Desktop */}
                             {index < steps.length - 1 && (
-                                <div className="hidden md:block absolute left-1/2 top-full w-0.5 h-8 bg-gradient-to-b from-[#154D92] to-[#154D92]/30 transform -translate-x-1/2 z-0" />
+                                <div className="hidden md:block absolute left-1/2 top-full w-0.5 h-8 bg-gradient-to-b from-[#1a365d] to-[#1a365d]/30 transform -translate-x-1/2 z-0" />
                             )}
 
                             {/* Mobile Layout */}
@@ -84,25 +84,25 @@ const TripPlanningTimeline = () => {
                                 <div className="flex items-start gap-4">
                                     {/* Step Circle */}
                                     <div className="relative flex-shrink-0">
-                                        <div className="w-12 h-12 bg-[#154D92] rounded-full flex items-center justify-center text-white shadow-lg">
+                                        <div className="w-12 h-12 bg-[#1a365d] rounded-full flex items-center justify-center text-white shadow-lg">
                                             {step.icon}
                                         </div>
-                                        <div className="absolute -top-1 -right-1 w-5 h-5 bg-white rounded-full flex items-center justify-center text-[#154D92] text-xs font-bold border-2 border-[#154D92]">
+                                        <div className="absolute -top-1 -right-1 w-5 h-5 bg-white rounded-full flex items-center justify-center text-[#1a365d] text-xs font-bold border-2 border-[#1a365d]">
                                             {step.number}
                                         </div>
                                         {/* Vertical line for mobile */}
                                         {index < steps.length - 1 && (
-                                            <div className="absolute left-1/2 top-full w-0.5 h-8 bg-[#154D92]/30 transform -translate-x-1/2" />
+                                            <div className="absolute left-1/2 top-full w-0.5 h-8 bg-[#1a365d]/30 transform -translate-x-1/2" />
                                         )}
                                     </div>
 
                                     {/* Content */}
-                                    <div className="flex-1 bg-[#f0f7ff] rounded-lg p-4 border-l-4 border-[#154D92]">
-                                        <h3 className="text-lg font-bold text-[#154D92] mb-2">{step.title}</h3>
+                                    <div className="flex-1 bg-[#FEF3E2] rounded-lg p-4 border-l-4 border-[#1a365d]">
+                                        <h3 className="text-lg font-bold text-[#1a365d] mb-2">{step.title}</h3>
                                         <p className="text-gray-600 text-sm mb-3">{step.description}</p>
                                         <button
                                             onClick={scrollToForm}
-                                            className="bg-[#154D92] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#0e3a6e] transition-colors"
+                                            className="bg-[#1a365d] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#2c5282] transition-colors"
                                         >
                                             Talk To Experts
                                         </button>
@@ -122,21 +122,21 @@ const TripPlanningTimeline = () => {
                                 </div>
 
                                 {/* Center Diamond */}
-                                <div className="w-16 h-16 bg-white rounded-xl rotate-45 flex items-center justify-center shadow-lg border-2 border-[#154D92] flex-shrink-0 z-10">
-                                    <div className="-rotate-45 text-[#154D92]">
+                                <div className="w-16 h-16 bg-white rounded-xl rotate-45 flex items-center justify-center shadow-lg border-2 border-[#1a365d] flex-shrink-0 z-10">
+                                    <div className="-rotate-45 text-[#1a365d]">
                                         {step.icon}
                                     </div>
                                 </div>
 
                                 {/* Content */}
                                 <div className="w-5/12">
-                                    <div className={`bg-[#f0f7ff] rounded-xl p-5 shadow-md hover:shadow-lg transition-all duration-300 ${index % 2 === 0 ? 'border-l-4' : 'border-r-4'} border-[#154D92]`}>
-                                        <span className="text-[#154D92] font-bold">Step {step.number}</span>
-                                        <h3 className="text-xl font-bold text-[#154D92] mb-2">{step.title}</h3>
+                                    <div className={`bg-[#FEF3E2] rounded-xl p-5 shadow-md hover:shadow-lg transition-all duration-300 ${index % 2 === 0 ? 'border-l-4' : 'border-r-4'} border-[#1a365d]`}>
+                                        <span className="text-[#1a365d] font-bold">Step {step.number}</span>
+                                        <h3 className="text-xl font-bold text-[#1a365d] mb-2">{step.title}</h3>
                                         <p className="text-gray-600 text-sm mb-4">{step.description}</p>
                                         <button
                                             onClick={scrollToForm}
-                                            className="bg-[#154D92] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#0e3a6e] transition-colors"
+                                            className="bg-[#1a365d] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#2c5282] transition-colors"
                                         >
                                             Talk To Experts
                                         </button>

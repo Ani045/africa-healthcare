@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
   const scrollToForm = () => {
     const heroForm = document.getElementById('hero-contact-form');
@@ -16,33 +15,26 @@ const Header = () => {
     }
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
-      <div className="container mx-auto px-6">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b border-gray-100">
+      <div className="container mx-auto px-4 lg:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-[#154D92] rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">A</span>
-            </div>
-            <span className="text-xl font-bold text-[#154D92]">Aster</span>
+          <div className="flex items-center">
+            <img
+              src="https://res.cloudinary.com/damfndmrm/image/upload/v1767612882/logo_oktwdd.png"
+              alt="NEWLIFE GLOBAL-HEALTHCARE"
+              className="h-12 lg:h-14 w-auto object-contain"
+            />
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {['Services', 'Doctors', 'About', 'Contact'].map((item) => (
+            {['Services', 'About', 'Contact'].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-sm font-medium text-gray-700 hover:text-[#154D92] transition-colors"
+                className="text-sm font-medium text-[#1a365d] hover:text-[#F5A623] transition-colors"
               >
                 {item}
               </a>
@@ -53,15 +45,15 @@ const Header = () => {
           <div className="hidden lg:flex items-center space-x-3">
             <button
               onClick={scrollToForm}
-              className="bg-[#154D92] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#0e3a6e] transition-colors">
-              Book Consultation
+              className="bg-[#1a365d] text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-[#2c5282] transition-colors shadow-md border-2 border-[#F5A623]">
+              Get Free Estimation
             </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 text-gray-700 hover:text-[#154D92] transition-colors"
+            className="lg:hidden p-2 text-[#1a365d] hover:text-[#F5A623] transition-colors"
           >
             {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -69,27 +61,27 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-lg">
             <nav className="px-6 py-4 space-y-3">
-              {['Services', 'Doctors', 'About', 'Contact'].map((item) => (
+              {['Services', 'About', 'Contact'].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="block text-sm font-medium text-gray-700 hover:text-[#154D92] transition-colors"
+                  className="block text-sm font-medium text-[#1a365d] hover:text-[#F5A623] transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item}
                 </a>
               ))}
-              <div className="pt-3 border-t border-gray-200">
+              <div className="pt-3 border-t border-gray-100">
                 <button
-                  className="w-full bg-[#154D92] text-white px-4 py-2 rounded-lg text-sm font-medium"
+                  className="w-full bg-[#1a365d] text-white px-4 py-2.5 rounded-lg text-sm font-semibold border-2 border-[#F5A623]"
                   onClick={() => {
                     scrollToForm();
                     setIsMenuOpen(false);
                   }}
                 >
-                  Book Consultation
+                  Get Free Estimation
                 </button>
               </div>
             </nav>

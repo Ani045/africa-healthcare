@@ -62,7 +62,7 @@ const Hero = () => {
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     try {
       const formData = new FormData(e.currentTarget);
       const response = await fetch('https://app.formester.com/forms/74CaRVAvR/submissions', {
@@ -137,9 +137,8 @@ const Hero = () => {
             {/* Headline */}
             <h1 className="text-3xl lg:text-4xl font-bold leading-tight ">
               Cancer Treatment in India
-              <br />
-              <span className="text-[#154D92] bg-white/90 px-2 rounded ">Save up to 70%</span>
             </h1>
+            <span className="inline-block text-[#1a365d] bg-[#F5A623] px-4 py-2 rounded-lg text-xl lg:text-2xl font-bold mt-2">Save up to 70%</span>
 
             <p className="text-white/90 text-base max-w-md">
               World-class oncology care at affordable prices. Get personalized treatment plans from India's top cancer specialists.
@@ -156,20 +155,20 @@ const Hero = () => {
             <div className="hidden lg:block pt-2">
               <button
                 onClick={handleConsultationClick}
-                className="bg-white text-[#154D92] px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center space-x-2 shadow-lg"
+                className="bg-white text-[#1a365d] px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center space-x-2 shadow-lg"
               >
                 <Calendar className="w-5 h-5" />
-                <span>Get Free Consultation</span>
+                <span>Get Your First Free Estimation</span>
               </button>
             </div>
           </div>
 
           {/* Right Side - Contact Form (Desktop) */}
-          <div className="hidden lg:block bg-white/95 backdrop-blur-md rounded-xl p-5 shadow-xl border border-[#154D92]/20 w-full max-w-sm mx-auto">
+          <div className="hidden lg:block bg-white/95 backdrop-blur-md rounded-xl p-5 shadow-xl border border-[#1a365d]/20 w-full max-w-sm mx-auto">
             <div id="hero-contact-form">
               <div className="text-center mb-4">
-                <h2 className="text-lg font-bold text-[#154D92]">
-                  Get Free Treatment Estimate
+                <h2 className="text-lg font-bold text-[#1a365d]">
+                  Get Your First Free Estimation
                 </h2>
                 <p className="text-gray-600 text-xs">
                   Connect with our medical tourism team
@@ -184,7 +183,7 @@ const Hero = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#154D92] focus:outline-none text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#1a365d] focus:outline-none text-sm"
                     placeholder="Your Name *"
                   />
                 </div>
@@ -196,7 +195,7 @@ const Hero = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#154D92] focus:outline-none text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#1a365d] focus:outline-none text-sm"
                     placeholder="Phone Number *"
                   />
                 </div>
@@ -207,7 +206,7 @@ const Hero = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#154D92] focus:outline-none text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#1a365d] focus:outline-none text-sm"
                     placeholder="Email Address"
                   />
                 </div>
@@ -218,7 +217,7 @@ const Hero = () => {
                     value={formData.country && formData.countryCode ? `${formData.country}|${formData.countryCode}` : ''}
                     onChange={handleCountryChange}
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#154D92] focus:outline-none text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#1a365d] focus:outline-none text-sm"
                   >
                     <option value="">Select Country *</option>
                     {countries.map((country) => (
@@ -235,16 +234,16 @@ const Hero = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={2}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#154D92] focus:outline-none resize-none text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#1a365d] focus:outline-none resize-none text-sm"
                     placeholder="Briefly describe your condition..."
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-[#154D92] text-white py-2.5 rounded-lg font-semibold hover:bg-[#0e3a6e] transition-colors text-sm"
+                  className="w-full bg-[#1a365d] text-white py-2.5 rounded-lg font-semibold hover:bg-[#2c5282] transition-colors text-sm border-2 border-[#F5A623]"
                 >
-                  Get Free Estimate
+                  Get Your First Free Estimation
                 </button>
 
                 <p className="text-xs text-gray-500 text-center">
@@ -255,28 +254,28 @@ const Hero = () => {
           </div>
 
           {/* Mobile Form - Only visible on mobile */}
-          <div className="lg:hidden bg-white/95 backdrop-blur-md rounded-xl p-4 shadow-xl border border-[#154D92]/20 w-full">
+          <div className="lg:hidden bg-white/95 backdrop-blur-md rounded-xl p-4 shadow-xl border border-[#1a365d]/20 w-full">
             <div id="hero-contact-form-mobile">
               <div className="text-center mb-3">
-                <h2 className="text-base font-bold text-[#154D92]">
-                  Get Free Treatment Estimate
+                <h2 className="text-base font-bold text-[#1a365d]">
+                  Get Your First Free Estimation
                 </h2>
               </div>
 
-              <form accept-charset='UTF-8'  method='POST' onSubmit={(e) => { e.preventDefault(); handleFormSubmit(e); }} className="space-y-2">
+              <form accept-charset='UTF-8' method='POST' onSubmit={(e) => { e.preventDefault(); handleFormSubmit(e); }} className="space-y-2">
                 <div className="grid grid-cols-2 gap-2">
                   <input
                     type="text"
                     name="name"
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#154D92] focus:outline-none text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#1a365d] focus:outline-none text-sm"
                     placeholder="Name *"
                   />
                   <input
                     type="tel"
                     name="phone"
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#154D92] focus:outline-none text-sm"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#1a365d] focus:outline-none text-sm"
                     placeholder="Phone *"
                   />
                 </div>
@@ -284,14 +283,14 @@ const Hero = () => {
                 <input
                   type="email"
                   name="email"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#154D92] focus:outline-none text-sm"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#1a365d] focus:outline-none text-sm"
                   placeholder="Email"
                 />
 
                 <select
                   name="countrySelect"
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#154D92] focus:outline-none text-sm"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#1a365d] focus:outline-none text-sm"
                 >
                   <option value="">Select Country *</option>
                   {countries.map((country) => (
@@ -304,15 +303,15 @@ const Hero = () => {
                 <textarea
                   name="message"
                   rows={2}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#154D92] focus:outline-none resize-none text-sm"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#1a365d] focus:outline-none resize-none text-sm"
                   placeholder="Describe your condition..."
                 ></textarea>
 
                 <button
                   type="submit"
-                  className="w-full bg-[#154D92] text-white py-2.5 rounded-lg font-semibold hover:bg-[#0e3a6e] transition-colors text-sm"
+                  className="w-full bg-[#1a365d] text-white py-2.5 rounded-lg font-semibold hover:bg-[#2c5282] transition-colors text-sm border-2 border-[#F5A623]"
                 >
-                  Get Free Estimate
+                  Get Your First Free Estimation
                 </button>
               </form>
             </div>

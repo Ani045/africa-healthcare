@@ -55,7 +55,7 @@ const FAQSection = () => {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#154D92] mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#1a365d] mb-4">
             Frequently Asked Questions
           </h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto">
@@ -65,16 +65,16 @@ const FAQSection = () => {
 
         <div className="max-w-4xl mx-auto space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="bg-[#f0f7ff] rounded-xl shadow-lg overflow-hidden">
+            <div key={index} className="bg-[#FEF3E2] rounded-xl shadow-lg overflow-hidden">
               <button
                 onClick={() => toggleFAQ(index)}
                 className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-white transition-colors"
               >
-                <span className="font-semibold text-[#154D92] pr-4">{faq.question}</span>
+                <span className="font-semibold text-[#1a365d] pr-4">{faq.question}</span>
                 {openFAQ === index ? (
-                  <ChevronUp className="w-5 h-5 text-[#154D92] flex-shrink-0" />
+                  <ChevronUp className="w-5 h-5 text-[#1a365d] flex-shrink-0" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-[#154D92] flex-shrink-0" />
+                  <ChevronDown className="w-5 h-5 text-[#1a365d] flex-shrink-0" />
                 )}
               </button>
               {openFAQ === index && (

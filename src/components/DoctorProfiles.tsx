@@ -44,10 +44,10 @@ const DoctorProfiles = () => {
   ];
 
   return (
-    <section id="doctors" className="py-8 sm:py-12 lg:py-16 bg-[#f0f7ff]">
+    <section id="doctors" className="py-8 sm:py-12 lg:py-16 bg-[#FEF3E2]">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#154D92] mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1a365d] mb-4">
             Meet Our Doctors
           </h2>
           <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto px-4">
@@ -66,14 +66,14 @@ const DoctorProfiles = () => {
                     <img
                       src={doctor.image}
                       alt={doctor.name}
-                      className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-4 border-[#154D92]"
+                      className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-4 border-[#1a365d]"
                     />
                     <div className="absolute -bottom-2 -right-2 w-5 h-5 sm:w-6 sm:h-6 bg-green-500 rounded-full border-2 border-white"></div>
                   </div>
 
                   {/* Doctor Info */}
                   <div className="flex-1 text-center sm:text-left w-full">
-                    <h3 className="text-lg sm:text-xl font-bold text-[#154D92] mb-2">{doctor.name}</h3>
+                    <h3 className="text-lg sm:text-xl font-bold text-[#1a365d] mb-2">{doctor.name}</h3>
                     <p className="text-[#2a6db8] font-semibold mb-2 text-sm sm:text-base">{doctor.specialization}</p>
                     <p className="text-gray-600 text-xs sm:text-sm mb-3">{doctor.qualifications}</p>
                     <p className="text-gray-500 text-xs sm:text-sm mb-4 leading-relaxed">{doctor.expertise}</p>
@@ -91,7 +91,7 @@ const DoctorProfiles = () => {
                       </a>
                       <button
                         onClick={scrollToForm}
-                        className="w-full sm:w-auto bg-[#154D92] text-white px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium hover:bg-[#0e3a6e] transition-colors flex items-center justify-center space-x-2"
+                        className="w-full sm:w-auto bg-[#1a365d] text-white px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium hover:bg-[#2c5282] transition-colors flex items-center justify-center space-x-2"
                       >
                         <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
                         <span className="whitespace-nowrap">Book Appointment</span>

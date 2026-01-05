@@ -92,7 +92,7 @@ const ServicesGrid = () => {
     <section id="services" className="py-10 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#154D92] mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#1a365d] mb-4">
             Our Cancer Treatment Services
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto text-lg">
@@ -100,26 +100,26 @@ const ServicesGrid = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
           {services.map((service, index) => (
             <div key={index} className="group">
-              <div className="bg-white rounded-xl p-6 border border-gray-200 hover:border-[#154D92]/50 hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300 h-full">
-                <div className="w-10 h-10 bg-[#154D92]/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#154D92]/30 transition-colors">
-                  <div className="text-[#154D92]">{service.icon}</div>
+              <div className="bg-white rounded-xl p-3 md:p-6 border border-gray-200 hover:border-[#1a365d]/50 hover:shadow-lg transform hover:-translate-y-1 md:hover:-translate-y-2 transition-all duration-300 h-full">
+                <div className="w-8 h-8 md:w-10 md:h-10 bg-[#1a365d]/20 rounded-lg flex items-center justify-center mb-2 md:mb-4 group-hover:bg-[#1a365d]/30 transition-colors">
+                  <div className="text-[#1a365d] scale-75 md:scale-100">{service.icon}</div>
                 </div>
 
-                <h3 className="text-lg font-semibold text-[#154D92] mb-3">
+                <h3 className="text-sm md:text-lg font-semibold text-[#1a365d] mb-1 md:mb-3 leading-tight">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 text-sm mb-4 leading-relaxed flex-grow">
+                <p className="hidden md:block text-gray-600 text-sm mb-4 leading-relaxed flex-grow">
                   {service.description}
                 </p>
 
-                <div className="space-y-2 mb-4">
+                <div className="space-y-1 md:space-y-2">
                   {service.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center space-x-2">
-                      <div className="w-1.5 h-1.5 bg-[#154D92] rounded-full"></div>
-                      <span className="text-gray-600 text-sm">{feature}</span>
+                    <div key={idx} className="flex items-center space-x-1.5 md:space-x-2">
+                      <div className="w-1 h-1 md:w-1.5 md:h-1.5 bg-[#1a365d] rounded-full flex-shrink-0"></div>
+                      <span className="text-gray-600 text-[10px] md:text-sm leading-tight">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -131,9 +131,9 @@ const ServicesGrid = () => {
         <div className="text-center mt-12">
           <button
             onClick={scrollToForm}
-            className="bg-[#154D92] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#0e3a6e] transition-colors shadow-lg"
+            className="bg-[#1a365d] text-white px-8 py-4 border-2 border-[#F5A623] rounded-lg font-semibold hover:bg-[#2c5282] transition-colors shadow-lg"
           >
-            Schedule Your Appointment Today!
+            Get Your First Free Estimation
           </button>
         </div>
       </div>
