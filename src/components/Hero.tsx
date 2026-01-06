@@ -65,21 +65,13 @@ const Hero = () => {
 
     try {
       const formData = new FormData(e.currentTarget);
-      const response = await fetch('https://app.formester.com/forms/74CaRVAvR/submissions', {
+      const response = await fetch('https://app.formester.com/forms/W1rh6HipC/submissions', {
         method: 'POST',
         body: formData,
       });
 
       if (response.ok) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        setFormData({
-          name: '',
-          phone: '',
-          email: '',
-          country: '',
-          countryCode: '',
-          message: ''
-        });
+        window.location.href = '/thank-you.html';
       }
     } catch (error) {
       console.error('Form submission error:', error);
@@ -175,7 +167,7 @@ const Hero = () => {
                 </p>
               </div>
 
-              <form accept-charset='UTF-8' method='POST' onSubmit={handleFormSubmit} className="space-y-3">
+              <form accept-charset='UTF-8' action='https://app.formester.com/forms/W1rh6HipC/submissions' method='POST' onSubmit={handleFormSubmit} className="space-y-3">
                 <div>
                   <input
                     type="text"
@@ -262,7 +254,7 @@ const Hero = () => {
                 </h2>
               </div>
 
-              <form accept-charset='UTF-8' method='POST' onSubmit={(e) => { e.preventDefault(); handleFormSubmit(e); }} className="space-y-2">
+              <form accept-charset='UTF-8' action='https://app.formester.com/forms/W1rh6HipC/submissions' method='POST' onSubmit={(e) => { e.preventDefault(); handleFormSubmit(e); }} className="space-y-2">
                 <div className="grid grid-cols-2 gap-2">
                   <input
                     type="text"
